@@ -1,11 +1,21 @@
+dist: trusty
+sudo: required
 language: node_js
+
 node_js:
-  - 6
-  - 7
-cache:
-  directories:
-  - node_modules
-install: true
+  - "node"
+  - "7"
+os:
+  - linux
 env:
   global:
-    - USE_YARN=no
+    - DBUS_SESSION_BUS_ADDRESS=/dev/null
+    - DISPLAY=:99.0
+    - CHROME_BIN=chromium-browser
+
+install:
+  - npm install
+
+cache:
+  directories:
+    - "node_modules"
